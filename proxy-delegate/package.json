@@ -1,0 +1,26 @@
+{
+  "name": "delegate-call-exercise",
+  "version": "1.0.0",
+  "description": "An example on how delegate call works",
+  "main": "index.js",
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeorgeBrownCollege-Toronto/Advanced-Smart-Contract.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeorgeBrownCollege-Toronto/Advanced-Smart-Contract/issues"
+  },
+  "homepage": "https://github.com/GeorgeBrownCollege-Toronto/Advanced-Smart-Contracts/tree/master/notes/contract-interaction/lab/proxy-delegate#readme",
+  "devDependencies": {
+    "bn.js": "^5.1.1",
+    "ethers": "^4.0.45",
+    "truffle": "^5.1.16",
+    "truffle-assertions": "^0.9.2"
+  }
+}
