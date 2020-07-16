@@ -1,0 +1,24 @@
+{
+  "name": "lab05",
+  "version": "1.0.0",
+  "description": "Lab 05 for BCDV1013",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Solidity",
+    "web3js",
+    "Ethereum"
+  ],
+  "author": "Lorran Sutter",
+  "license": "ISC",
+  "dependencies": {
+    "bignumber.js": "^9.0.0",
+    "dotenv": "^8.2.0",
+    "web3": "^1.2.9"
+  },
+  "devDependencies": {
+    "solc": "^0.6.11"
+  }
+}
