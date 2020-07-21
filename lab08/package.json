@@ -1,0 +1,26 @@
+{
+  "name": "long-lived-payment-channel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeorgeBrownCollege-Toronto/Advanced-Smart-Contract.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GeorgeBrownCollege-Toronto/Advanced-Smart-Contract/issues"
+  },
+  "homepage": "https://github.com/GeorgeBrownCollege-Toronto/Advanced-Smart-Contracts/tree/master/notes/intro-state-channel/lab/long-lived-payment-channel#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "solium": "^1.2.5"
+  }
+}
