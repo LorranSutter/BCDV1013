@@ -1,0 +1,18 @@
+{
+  "name": "gsn-dapp",
+  "version": "1.0.0",
+  "description": "GSN-DAPP",
+  "main": "index.js",
+  "author": "Dhruvin",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@openzeppelin/cli": "^2.8.2",
+    "@openzeppelin/contracts-ethereum-package": "^3.0.0",
+    "@openzeppelin/gsn-helpers": "^0.2.3",
+    "@openzeppelin/network": "^0.4.2",
+    "@openzeppelin/upgrades": "^2.8.0",
+    "@truffle/hdwallet-provider": "^1.0.36",
+    "ganache-cli": "^6.10.0-beta.2"
+  }
+}
