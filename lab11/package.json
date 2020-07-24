@@ -1,0 +1,19 @@
+{
+  "name": "lab11",
+  "version": "1.0.0",
+  "description": "Lab 11 for BCDV1013",
+  "main": "voter-tree.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Ethereum",
+    "Solidity",
+    "Merkle-Tree"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "^5.0.7"
+  }
+}
