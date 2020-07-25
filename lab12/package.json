@@ -1,0 +1,36 @@
+{
+  "name": "upgradability",
+  "version": "1.0.0",
+  "description": "When developing software, it's quite frequent the releasing of new versions to add new functionalities or bug fixes. There's no difference when it comes to smart contract development. Although, updating a smart contract to a new version is usually not as simple as updating other types of software of the same complexity.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test",
+    "lint": "solium -c ./.soliumrc.json -d ./contracts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeorgeBrownCollege-Toronto/Advanced-Smart-Contract.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GeorgeBrownCollege-Toronto/Advanced-Smart-Contract/issues"
+  },
+  "homepage": "https://github.com/GeorgeBrownCollege-Toronto/Advanced-Smart-Contracts/tree/master/notes/sc-patterns-best-practices/lab/upgradability#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@openzeppelin/test-helpers": "^0.5.6",
+    "chai": "^4.2.0",
+    "husky": "^4.2.5",
+    "openzeppelin-test-helpers": "^0.5.1",
+    "solium": "^1.2.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
+}
