@@ -106,7 +106,7 @@ class TodoApp extends React.Component {
 		if (!priorityFilter) {
 			items = await db.getAll('items');
 		} else {
-			items = priorityFilter && await db.getAllFromIndex('items', 'priority', priorityFilter);
+			items = await db.getAllFromIndex('items', 'priority', priorityFilter);
 		}
 
 		this.setState({ items, });
