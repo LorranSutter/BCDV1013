@@ -8,9 +8,10 @@ const dbPromise = idb.openDB('todo-db', 1, {
 			autoIncrement: true,
 		});
 
-		items.createIndex('priority', 'priority');
-		items.createIndex('created', 'created');
 		items.createIndex('status', 'status');
+		items.createIndex('created', 'created');
+		items.createIndex('description', 'description');
+		items.createIndex('priority', 'priority');
 	}
 });
 
@@ -27,7 +28,8 @@ class TodoApp extends React.Component {
 	}
 
 	async refreshItems() {
-		let items = []; // EDIT ME: get them from the DB
+		let db = await dbPromise;
+		let items = await db.getAll('items');
 
 		this.setState({ items, });
 	}
@@ -45,14 +47,26 @@ class TodoApp extends React.Component {
 			priority: this.refs.priority.value,
 		};
 
-		// EDIT ME: store newItem into the DB
+		let db = await dbPromise;
+		let tx = db.transaction('items', 'readwrite');
+
+		tx.store.add(newItem);
+
+		await tx.done;
 
 		this.refs.description.value = '';
 		this.refreshItems();
 	}
 
 	async completeItem(id) {
-		// EDIT ME: set the "status" field to complete, for the record with this id
+		let db = await dbPromise;
+		let tx = db.transaction('items', 'readwrite');
+
+		let item = await db.get('items', id);
+		item.status = 'complete';
+		await db.put('items', item);
+
+		await tx.done;
 
 		this.refreshItems();
 	}
