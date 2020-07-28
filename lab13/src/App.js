@@ -21,8 +21,7 @@ class TodoApp extends React.Component {
 		super(props);
 
 		this.state = {
-			items: [],
-			priorityFilter: 'low'
+			items: []
 		};
 
 		this.wrapper = {
