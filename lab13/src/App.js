@@ -22,6 +22,7 @@ class TodoApp extends React.Component {
 
 		this.state = {
 			items: [],
+			priorityFilter: 'low'
 		};
 
 		this.wrapper = {
@@ -76,6 +77,15 @@ class TodoApp extends React.Component {
 			outline: 'none'
 		};
 
+		this.filterStyle = {
+			boxSizing: 'border-box',
+			display: 'flex',
+			alignItems: 'center',
+			width: '100%',
+			margin: '10px',
+			padding: '0 5px'
+		};
+
 		this.tableStyle = {
 			width: '100%',
 		};
@@ -86,12 +96,19 @@ class TodoApp extends React.Component {
 			background: '#AAAAAA'
 		};
 
-		this.refreshItems();
+		this.refreshItems(this.state.priorityFilter);
 	}
 
 	async refreshItems() {
-		let db = await dbPromise;
-		let items = await db.getAll('items');
+		const db = await dbPromise;
+		let items;
+		const priorityFilter = this.refs.priorityFilter && this.refs.priorityFilter.value;
+
+		if (!priorityFilter) {
+			items = await db.getAll('items');
+		} else {
+			items = priorityFilter && await db.getAllFromIndex('items', 'priority', priorityFilter);
+		}
 
 		this.setState({ items, });
 	}
@@ -125,7 +142,7 @@ class TodoApp extends React.Component {
 		let tx = db.transaction('items', 'readwrite');
 
 		let item = await db.get('items', id);
-		item.status = 'complete';
+		item.status = 'closed';
 		await db.put('items', item);
 
 		await tx.done;
@@ -150,6 +167,23 @@ class TodoApp extends React.Component {
 					</div>
 
 					<div style={{ color: 'red' }}>{this.state.addError}</div>
+
+					<div style={this.filterStyle}>
+						<h3 style={{ margin: 0 }}>Filter</h3>
+						<div>
+							<select
+								ref='priorityFilter'
+								defaultValue=""
+								style={this.selectStyle}
+								onChange={() => this.refreshItems()}
+							>
+								<option value="">all</option>
+								<option value="low">low</option>
+								<option value="medium">medium</option>
+								<option value="high">high</option>
+							</select>
+						</div>
+					</div>
 
 					<table style={this.tableStyle}>
 						<th style={this.tableHeaderStyle}>Description</th>
